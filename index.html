@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>阮阮的感情占卜｜盧恩符文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7E6DA;
+  --paper:#FDF4EE;
+  --stone:#EFCFBC;
+  --stone-edge:#DEB29A;
+  --ink:#4A3029;
+  --muted:#87675C;
+  --moss:#C0705A;
+  --rose:#C2554F;
+  --line:#EBC9B6;
+  --font-hand:"LXGW WenKai TC","Kaiti TC","STKaiti","BiauKai",serif;
+  --font-body:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --font-rune:"Noto Sans Runic","Segoe UI Historic","Segoe UI Symbol",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#2B201C;--paper:#352823;--stone:#4A3730;--stone-edge:#614840;
+    --ink:#F5E4D9;--muted:#C4A597;--moss:#E39A80;--rose:#F0A194;--line:#4D3A33;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#2B201C;--paper:#352823;--stone:#4A3730;--stone-edge:#614840;
+  --ink:#F5E4D9;--muted:#C4A597;--moss:#E39A80;--rose:#F0A194;--line:#4D3A33;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);font-size:1.0625rem;line-height:1.95;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px;border-radius:6px}
+
+/* Hero */
+.hero{max-width:1040px;margin:0 auto;padding:4.5rem 1.5rem 3rem}
+.hero h1{
+  font-family:var(--font-hand);font-weight:700;
+  font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.15;margin:0 0 .6rem;letter-spacing:.04em;
+}
+.hero p{margin:0;color:var(--muted);font-size:1.05rem;max-width:34em}
+
+/* Spread */
+.spread{
+  display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:1.25rem;
+  margin-top:3rem;align-items:start;
+}
+.group{text-align:center}
+.group h2{
+  font-family:var(--font-hand);font-weight:400;font-size:1.25rem;margin:0 0 1rem;color:var(--muted)
+}
+.stones{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
+.stone{
+  display:flex;flex-direction:column;align-items:center;text-decoration:none;
+  width:5.6rem;
+}
+.stone .face{
+  width:5.2rem;height:6.2rem;display:grid;place-items:center;
+  background:var(--stone);border:1px solid var(--stone-edge);
+  border-radius:46% 54% 50% 50% / 42% 44% 56% 58%;
+  box-shadow:inset 0 -6px 12px rgba(120,60,40,.10);
+  font-family:var(--font-rune);font-size:2.7rem;line-height:1;color:var(--ink);
+  transition:transform .25s ease;
+}
+.stone:nth-child(2n) .face{border-radius:52% 48% 55% 45% / 48% 40% 60% 52%}
+.stone:nth-child(3n) .face{border-radius:44% 56% 46% 54% / 50% 46% 54% 50%}
+.stone .glyph{display:inline-block}
+.stone.rev .glyph{transform:rotate(180deg)}
+.stone .name{margin-top:.5rem;font-size:.85rem;line-height:1.3;color:var(--ink)}
+.stone .pos{font-size:.75rem;color:var(--rose);line-height:1.4}
+.stone .pos.up{color:var(--muted)}
+.stone:hover .face{transform:translateY(-3px)}
+
+.advice-row{
+  margin-top:2.2rem;display:flex;justify-content:center;align-items:center;gap:1.25rem;
+  padding-top:2rem;border-top:1px dashed var(--line)
+}
+.advice-row .stone .face{
+  width:6.4rem;height:7.4rem;font-size:3.4rem;
+  background:var(--moss);color:var(--paper);border-color:var(--moss);
+}
+.advice-row p{margin:0;font-family:var(--font-hand);font-size:1.2rem;max-width:14em;line-height:1.6}
+
+/* Reading */
+main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem 5rem}
+.reading{
+  background:var(--paper);border-radius:20px;padding:2.5rem clamp(1.25rem,5vw,3.5rem);
+  margin-top:1.5rem;
+}
+.reading section + section{margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)}
+.reading h3{
+  font-family:var(--font-hand);font-weight:700;font-size:1.65rem;margin:0 0 .3rem;line-height:1.4
+}
+.who{color:var(--muted);font-size:.95rem;margin:0 0 1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.4rem;padding:0;list-style:none}
+.chips li{
+  display:flex;align-items:center;gap:.5rem;
+  border:1px solid var(--line);border-radius:999px;padding:.2rem .85rem .2rem .55rem;font-size:.9rem
+}
+.chips .r{font-family:var(--font-rune);font-size:1.15rem;display:inline-block}
+.chips .rev .r{transform:rotate(180deg)}
+.chips em{font-style:normal;color:var(--rose);font-size:.8rem}
+.text{max-width:36em}
+.text p{margin:0 0 1.1rem}
+.text p:last-child{margin-bottom:0}
+
+.advice h3{color:var(--moss)}
+.closing{
+  margin-top:3rem;padding:2rem clamp(1.25rem,4vw,2.5rem);
+  border-left:4px solid var(--moss);background:var(--bg);border-radius:0 14px 14px 0
+}
+.closing p{margin:0;font-family:var(--font-hand);font-size:1.35rem;line-height:1.7;max-width:26em}
+
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 1.5rem 3rem}
+
+/* Load reveal: runes cast one by one */
+@media (prefers-reduced-motion: no-preference){
+  .stone{opacity:0;animation:cast .6s ease forwards}
+  @keyframes cast{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .stone .face{transition:none}
+}
+
+@media (max-width:760px){
+  .hero{padding-top:3rem}
+  .spread{grid-template-columns:1fr;gap:2rem}
+  .advice-row{flex-direction:column;text-align:center}
+  .stone{width:5rem}
+  .stone .face{width:4.6rem;height:5.5rem;font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>阮阮的感情占卜</h1>
+  <p>以盧恩符文解讀阮阮與男同事之間的關係：兩人各自的性格、目前的相處狀態，以及往下一步走的方法。</p>
+
+  <div class="spread" aria-label="符文牌陣">
+    <div class="group">
+      <h2>男同事</h2>
+      <div class="stones">
+        <a class="stone" href="#him"><span class="face"><span class="glyph">ᚺ</span></span><span class="name">Hagalaz</span><span class="pos up">正位</span></a>
+        <a class="stone rev" href="#him"><span class="face"><span class="glyph">ᛚ</span></span><span class="name">Laguz</span><span class="pos">逆位</span></a>
+      </div>
+    </div>
+    <div class="group">
+      <h2>兩人的關係</h2>
+      <div class="stones">
+        <a class="stone rev" href="#us"><span class="face"><span class="glyph">ᛏ</span></span><span class="name">Tiwaz</span><span class="pos">逆位</span></a>
+        <a class="stone" href="#us"><span class="face"><span class="glyph">ᚷ</span></span><span class="name">Gebo</span><span class="pos up">正位</span></a>
+        <a class="stone" href="#us"><span class="face"><span class="glyph">ᚾ</span></span><span class="name">Nauthiz</span><span class="pos up">正位</span></a>
+        <a class="stone" href="#us"><span class="face"><span class="glyph">ᛖ</span></span><span class="name">Ehwaz</span><span class="pos up">正位</span></a>
+      </div>
+    </div>
+    <div class="group">
+      <h2>阮阮</h2>
+      <div class="stones">
+        <a class="stone rev" href="#her"><span class="face"><span class="glyph">ᛉ</span></span><span class="name">Algiz</span><span class="pos">逆位</span></a>
+        <a class="stone rev" href="#her"><span class="face"><span class="glyph">ᚢ</span></span><span class="name">Uruz</span><span class="pos">逆位</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="advice-row">
+    <a class="stone" href="#advice"><span class="face"><span class="glyph">ᛒ</span></span><span class="name">Berkano</span><span class="pos up">建議</span></a>
+    <p>用溫柔與包容，照顧彼此的情緒，關係才能往前走。</p>
+  </div>
+</header>
+
+<main>
+  <article class="reading">
+
+    <section id="him">
+      <h3>他：外表撐著，內心有風暴</h3>
+      <p class="who">男同事的性格</p>
+      <ul class="chips">
+        <li><span class="r">ᚺ</span>Hagalaz 冰雹</li>
+        <li class="rev"><span class="r">ᛚ</span>Laguz 流水 <em>逆位</em></li>
+      </ul>
+      <div class="text">
+        <p>Hagalaz 是冰雹，代表他內心承受著不少壓力與衝擊，外表看起來穩重，心裡其實常有風暴。他重義氣、肯努力，遇到事情會扛下來，但這份硬撐也讓他不太會表達脆弱。</p>
+        <p>Laguz 逆位顯示他的情緒像一片不太平靜的水面，容易想太多，對關係缺乏安全感。他很需要有人給他情緒價值，像是被理解、被肯定、被溫柔接住。表面理性，內在其實很在意對方的態度和回應。</p>
+      </div>
+    </section>
+
+    <section id="her">
+      <h3>阮阮：心裡設防，行動卻很積極</h3>
+      <p class="who">阮阮的性格</p>
+      <ul class="chips">
+        <li class="rev"><span class="r">ᛉ</span>Algiz 守護 <em>逆位</em></li>
+        <li class="rev"><span class="r">ᚢ</span>Uruz 野牛 <em>逆位</em></li>
+      </ul>
+      <div class="text">
+        <p>Algiz 逆位代表阮阮心中也有不安。她習慣先保護自己，容易反覆思考、擔心受傷，在感情裡不自覺築起防線。</p>
+        <p>Uruz 逆位說明她行動力強、積極，但有時衝得太快，或在情緒上來時直接反應，給人比較魯莽的感覺。她有熱情，只是需要把這股力量用得更溫和、更有節奏。</p>
+      </div>
+    </section>
+
+    <section id="us">
+      <h3>兩人：在意彼此，卻停在朋友的位置</h3>
+      <p class="who">目前的關係狀態</p>
+      <ul class="chips">
+        <li class="rev"><span class="r">ᛏ</span>Tiwaz 勇氣 <em>逆位</em></li>
+        <li><span class="r">ᚷ</span>Gebo 禮物</li>
+        <li><span class="r">ᚾ</span>Nauthiz 需要</li>
+        <li><span class="r">ᛖ</span>Ehwaz 夥伴</li>
+      </ul>
+      <div class="text">
+        <p>Gebo 與 Ehwaz 是很好的訊號。Gebo 代表彼此有付出、有交流，互相在意；Ehwaz 代表兩人默契不錯，相處有夥伴般的合作感。這段關係的底子是穩的，他們會考慮對方的感受，也願意配合彼此。</p>
+        <p>不過 Tiwaz 逆位指出，目前兩人都缺少主動跨出一步的勇氣，沒有人想先表態。Nauthiz 則代表某種限制或顧慮，可能是同事身分、現實考量，或兩人各自的不安全感。</p>
+        <p>結果就是相處很理性、很安全，卻少了心動和火花，關係停在「好朋友」的位置。</p>
+      </div>
+    </section>
+
+    <section id="advice" class="advice">
+      <h3>建議：像樺樹一樣，慢慢滋養</h3>
+      <p class="who">往下一步走的方法</p>
+      <ul class="chips">
+        <li><span class="r">ᛒ</span>Berkano 樺樹</li>
+      </ul>
+      <div class="text">
+        <p>Berkano 象徵溫柔的滋養與慢慢成長。這段關係不需要強推，靠的是包容與細心照顧彼此的情緒。</p>
+        <p>兩人其實都容易想太多、缺乏安全感，所以最能打動對方的，是讓對方感到「在你身邊很安心」。阮阮可以試著放下一些防備，多給他肯定和情緒上的回應，例如關心他的辛苦、認同他的努力，他需要的正是這份被理解的感覺。</p>
+        <p>同時，阮阮也要留意自己衝動的一面，遇到情緒時先停一下再表達，讓溫柔取代直接。當彼此都感受到被接住、被照顧，信任就會慢慢累積，火花也會在這份安全感中自然萌芽。到那時，這段關係才有機會從朋友走向下一步。</p>
+      </div>
+    </section>
+
+    <div class="closing">
+      <p>你們之間有在意、有默契，缺的是安全感和一點勇氣。先用溫柔建立信任，比急著推進更重要。</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>盧恩符文占卜僅供參考，最終的選擇在你自己手上。</footer>
+
+<script>
+document.querySelectorAll('.stone').forEach(function(el,i){
+  el.style.animationDelay=(i*0.12)+'s';
+});
+</script>
+</body>
+</html>
